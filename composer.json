@@ -1,0 +1,27 @@
+{
+    "name": "3neti/x-stamp-designs",
+    "description": "Versioned portable Stamp design collection.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.4"
+    },
+    "extra": {
+        "x-stamp": {
+            "collection": "collection.json"
+        }
+    },
+    "require-dev": {
+        "3neti/x-stamp": "^1.0",
+        "pestphp/pest": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "pest --compact"
+    }
+}
