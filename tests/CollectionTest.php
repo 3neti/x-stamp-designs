@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -78,4 +78,26 @@ it('renders an illustrated pipe background with a solid logo while preserving pr
     }
     expect($opaqueLogoPixels)->toBeGreaterThan(500);
     imagedestroy($image);
+});
+
+it('keeps the G-clef logo over the pipe artwork without its previous plaque', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $renderer = new Renderer;
+    $before = imagecreatefromstring($renderer->png($catalog->resolve('steampunk', 3)));
+    $after = imagecreatefromstring($renderer->png($catalog->resolve('steampunk', 4)));
+    expect(imagecolorat($after, 970, 70))->not->toBe(imagecolorat($before, 970, 70));
+    expect(imagecolorat($after, 500, 300))->toBe(imagecolorat($before, 500, 300));
+    $logoPixels = 0;
+    for ($y = 60; $y < 310; $y++) {
+        for ($x = 1000; $x < 1100; $x++) {
+            $color = imagecolorsforindex($after, imagecolorat($after, $x, $y));
+            if ($color['red'] === 230 && $color['green'] === 190 && $color['blue'] === 128) {
+                $logoPixels++;
+            }
+        }
+    }
+    expect($logoPixels)->toBeGreaterThan(500);
+    imagedestroy($before);
+    imagedestroy($after);
 });

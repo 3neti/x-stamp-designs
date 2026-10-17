@@ -5,6 +5,7 @@
         "designs/steampunk/1/stamp.json",
         "designs/steampunk/2/stamp.json",
         "designs/steampunk/3/stamp.json",
+        "designs/steampunk/4/stamp.json",
         "designs/cats/1/stamp.json",
         "designs/valentine/1/stamp.json"
     ],
@@ -29,13 +30,16 @@
         "assets/artwork/steampunk-readability-v3.svg": "17cf6fd6fbb214f0445aefdb1cec95e41b73a28a2c15bd7b0641abf365e0cd1f",
         "assets/artwork/steampunk-readability-v3.png": "5b34f40b67c7e3eb9132cdbfb0e587f35dc168d80c11315a6d2d68856f9a6852",
         "designs/steampunk/3/preview.png": "8903b7200bf9469fab907b8f82fa3492236d2c9d81d6f2a693b70d33ae9c797f",
-        "assets/artwork/steampunk-pipes-v3.provenance.json": "763d386d811252dfdce7bd51d30b5db6b2eb941357793e4af03946d8abf87a5e"
+        "assets/artwork/steampunk-pipes-v3.provenance.json": "763d386d811252dfdce7bd51d30b5db6b2eb941357793e4af03946d8abf87a5e",
+        "designs/steampunk/4/stamp.json": "69129c0ae1a5763597a9879bbed287f17f892c6b9b3432c4c53751fb8dab6ac8",
+        "designs/steampunk/4/preview.png": "fadb4dc5ddc7ee4aacecacc7783d9fd1b621e7123ef5127a991ccc898163bb9c"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
         "steampunk@1": "designs/steampunk/1/preview.png",
         "valentine@1": "designs/valentine/1/preview.png",
         "steampunk@2": "designs/steampunk/2/preview.png",
-        "steampunk@3": "designs/steampunk/3/preview.png"
+        "steampunk@3": "designs/steampunk/3/preview.png",
+        "steampunk@4": "designs/steampunk/4/preview.png"
     }
 }
