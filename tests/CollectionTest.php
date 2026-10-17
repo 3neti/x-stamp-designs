@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -119,4 +119,16 @@ it('uses the supplied Cats photograph with the Steampunk text and palette while 
     expect(imagesx($image))->toBe(1200);
     expect(imagesy($image))->toBe(630);
     imagedestroy($image);
+});
+
+it('keeps every Cats revision 3 foreground element identical to Steampunk revision 4', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $renderer = new Renderer;
+    $slots = ['brand' => 'Pay Code', 'amount' => '₱1,000.00', 'recipient' => 'For Amelia', 'purpose' => "Money should adapt to people.\nNot the other way around.", 'expiry' => '3 Days', 'instructions' => 'Receive Funds · Full Name'];
+    $cats = $renderer->layout($catalog->resolve('cats', 3), $slots);
+    $steampunk = $renderer->layout($catalog->resolve('steampunk', 4), $slots);
+    expect(array_slice($cats, 1))->toBe(array_slice($steampunk, 1));
+    expect($cats[0]['asset'])->toBe('assets/artwork/cats-starbucks-v2.jpg');
+    expect($cats[0]['fit'])->toBe('cover');
 });

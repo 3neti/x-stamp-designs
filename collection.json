@@ -8,6 +8,7 @@
         "designs/steampunk/4/stamp.json",
         "designs/cats/1/stamp.json",
         "designs/cats/2/stamp.json",
+        "designs/cats/3/stamp.json",
         "designs/valentine/1/stamp.json"
     ],
     "files": {
@@ -36,7 +37,9 @@
         "designs/steampunk/4/preview.png": "fadb4dc5ddc7ee4aacecacc7783d9fd1b621e7123ef5127a991ccc898163bb9c",
         "assets/artwork/cats-starbucks-v2.jpg": "fe10c834e4b2851f4ebe1e9c6cdb0970e9a2a159231ab076ee3c13e58309dbfb",
         "designs/cats/2/stamp.json": "2d57e94af386f804998313398e484da2f83eaf308d499c8f05168eb329085d9c",
-        "designs/cats/2/preview.png": "b35e9037d723b6ef8124f57d6b4eb116dba954e8b0ea91a8bb72c58a835f3f23"
+        "designs/cats/2/preview.png": "b35e9037d723b6ef8124f57d6b4eb116dba954e8b0ea91a8bb72c58a835f3f23",
+        "designs/cats/3/stamp.json": "507679d57ec5a10176b01c3c28e8f64b30a2630d478957884579289731524fd9",
+        "designs/cats/3/preview.png": "21cdb9959d16ffed0d88a8d6312a316aa445ac6c270ce28b7495ae736ce4676c"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -45,6 +48,7 @@
         "steampunk@2": "designs/steampunk/2/preview.png",
         "steampunk@3": "designs/steampunk/3/preview.png",
         "steampunk@4": "designs/steampunk/4/preview.png",
-        "cats@2": "designs/cats/2/preview.png"
+        "cats@2": "designs/cats/2/preview.png",
+        "cats@3": "designs/cats/3/preview.png"
     }
 }
