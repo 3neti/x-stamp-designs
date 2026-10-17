@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -51,4 +51,31 @@ it('adds a faint centered watermark while preserving the historical Stamp and fi
     }
     expect($minimumAlpha)->toBeGreaterThanOrEqual(110)->toBeLessThan(127);
     imagedestroy($artwork);
+});
+
+it('renders an illustrated pipe background with a solid logo while preserving previous revisions and financial text', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $renderer = new Renderer;
+    $slots = ['amount' => '₱1,000.00', 'recipient' => 'Amelia', 'expiry' => '3 Days', 'instructions' => 'Full Name'];
+    $text = fn ($design) => array_column(array_filter($renderer->layout($design, $slots), fn (array $layer): bool => $layer['type'] === 'text'), 'text');
+    $design = $catalog->resolve('steampunk', 3);
+    expect($text($design))->toBe($text($catalog->resolve('steampunk', 1)));
+    expect(hash_file('sha256', dirname(__DIR__).'/designs/steampunk/2/stamp.json'))->toBe('7ca207fc46550cea24960599ea2ab1cdf2a3a66cf00ef1b7abac752f2555d838');
+    $image = imagecreatefromstring($renderer->png($design, $slots));
+    expect(imagesx($image))->toBe(1200);
+    expect(imagesy($image))->toBe(630);
+    $plaque = imagecolorsforindex($image, imagecolorat($image, 970, 70));
+    expect([$plaque['red'], $plaque['green'], $plaque['blue']])->toBe([16, 23, 25]);
+    $opaqueLogoPixels = 0;
+    for ($y = 60; $y < 310; $y++) {
+        for ($x = 1000; $x < 1100; $x++) {
+            $color = imagecolorsforindex($image, imagecolorat($image, $x, $y));
+            if ($color['red'] > 220 && $color['green'] > 180 && $color['blue'] > 110) {
+                $opaqueLogoPixels++;
+            }
+        }
+    }
+    expect($opaqueLogoPixels)->toBeGreaterThan(500);
+    imagedestroy($image);
 });

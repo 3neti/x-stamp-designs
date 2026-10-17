@@ -4,6 +4,7 @@
     "designs": [
         "designs/steampunk/1/stamp.json",
         "designs/steampunk/2/stamp.json",
+        "designs/steampunk/3/stamp.json",
         "designs/cats/1/stamp.json",
         "designs/valentine/1/stamp.json"
     ],
@@ -20,12 +21,21 @@
         "assets/artwork/g-clef-watermark.svg": "515d1da960d5f9d9bdb54b296dc4feb90f585f0ec41421fed58705151b29b5ca",
         "assets/artwork/g-clef-watermark.png": "d73c67df9add68fdd36aae7777a0e628c892a82584042227f489073db0174197",
         "designs/steampunk/2/stamp.json": "7ca207fc46550cea24960599ea2ab1cdf2a3a66cf00ef1b7abac752f2555d838",
-        "designs/steampunk/2/preview.png": "32dbe7a63ed751d1580a1bc392eb2681690c3b384c01c6f521ef7fb59ef9529f"
+        "designs/steampunk/2/preview.png": "32dbe7a63ed751d1580a1bc392eb2681690c3b384c01c6f521ef7fb59ef9529f",
+        "designs/steampunk/3/stamp.json": "aeb7a42b7fd390b10bd203c6f7d31b632bf8f018368f92effbe95c4e97c7091b",
+        "assets/artwork/steampunk-pipes-v3.png": "8d231bf8c9b0afce5689378f8932ed2cbaf4d910e7c9d88b6247778224d63378",
+        "assets/artwork/g-clef-brass-logo.svg": "3b09ec68bb0639ee3c86e87b6c970cd7a6ca802e537634c9cbb946798cba346d",
+        "assets/artwork/g-clef-brass-logo.png": "13ee33438afe81410a9e33c37d881ba681a3985814d4112c5d8877f0c5f67707",
+        "assets/artwork/steampunk-readability-v3.svg": "17cf6fd6fbb214f0445aefdb1cec95e41b73a28a2c15bd7b0641abf365e0cd1f",
+        "assets/artwork/steampunk-readability-v3.png": "5b34f40b67c7e3eb9132cdbfb0e587f35dc168d80c11315a6d2d68856f9a6852",
+        "designs/steampunk/3/preview.png": "8903b7200bf9469fab907b8f82fa3492236d2c9d81d6f2a693b70d33ae9c797f",
+        "assets/artwork/steampunk-pipes-v3.provenance.json": "763d386d811252dfdce7bd51d30b5db6b2eb941357793e4af03946d8abf87a5e"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
         "steampunk@1": "designs/steampunk/1/preview.png",
         "valentine@1": "designs/valentine/1/preview.png",
-        "steampunk@2": "designs/steampunk/2/preview.png"
+        "steampunk@2": "designs/steampunk/2/preview.png",
+        "steampunk@3": "designs/steampunk/3/preview.png"
     }
 }

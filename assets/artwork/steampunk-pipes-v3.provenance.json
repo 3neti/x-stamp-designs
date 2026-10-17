@@ -1,0 +1,7 @@
+{
+    "generator": "OpenAI image_gen built-in",
+    "prompt": "Use case: stylized-concept. Asset type: production background texture for a 1200x630 landscape financial Pay Code card (approximately 1.9:1). Create an original realistic steampunk industrial pipe network: intricately connected aged copper and brass pipes, curved elbows, bolted flanges, small handwheel valves, occasional dark patinated blue-green steel, richly tactile metal surfaces, cinematic warm highlights and deep charcoal shadows. Close-up frontal architectural composition with layered mechanical depth, no perspective frame. Large curved pipes and interesting valves concentrated toward the right edge and bottom edge, slightly quieter darker pipes across the left two-thirds so cream-colored financial text can be overlaid legibly. Upper-right will receive a separate small vertical brand logo; bottom-right will receive a separate white QR square. Fill the whole image with industrial machinery; no blank white canvas. Premium restrained copper/bronze, charcoal, and subtle verdigris palette. No typography, no numbers, no symbols, no logos, no watermarks, no borders, no card mockup, no UI elements. Generate the background only.",
+    "reference": "https://www.dreamstime.com/steampunk-pipe-network-brass-copper-pipes-valves-creating-industrial-intricate-background-gears-mechanics-suggest-retro-tech-image407312040",
+    "reference_use": "Visual direction only; generated original background.",
+    "logo_source": "3neti/x-change brand-library/g-clef-pulley/svg/g-clef-pulley-mark.svg"
+}
