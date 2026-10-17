@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -100,4 +100,23 @@ it('keeps the G-clef logo over the pipe artwork without its previous plaque', fu
     expect($logoPixels)->toBeGreaterThan(500);
     imagedestroy($before);
     imagedestroy($after);
+});
+
+it('uses the supplied Cats photograph with the Steampunk text and palette while preserving Cats revision 1', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve('cats', 2);
+    $steampunk = $catalog->resolve('steampunk', 4);
+    expect(hash_file('sha256', $design->asset('assets/artwork/cats-starbucks-v2.jpg')))->toBe('fe10c834e4b2851f4ebe1e9c6cdb0970e9a2a159231ab076ee3c13e58309dbfb');
+    expect(hash_file('sha256', dirname(__DIR__).'/designs/cats/1/stamp.json'))->toBe('7ec6d4b59a45716c43b82e28d0814cf9640468f6f2f5b55dd12341508058b53f');
+    expect($design->document['background'])->toBe($steampunk->document['background']);
+    expect($design->document['foreground'])->toBe($steampunk->document['foreground']);
+    $renderer = new Renderer;
+    $slots = ['amount' => '₱1,000.00', 'purpose' => "Money should adapt to people.\nNot the other way around."];
+    $text = fn ($stamp) => array_values(array_filter($renderer->layout($stamp, $slots), fn (array $layer): bool => $layer['type'] === 'text'));
+    expect($text($design))->toBe($text($steampunk));
+    $image = imagecreatefromstring($renderer->png($design, $slots));
+    expect(imagesx($image))->toBe(1200);
+    expect(imagesy($image))->toBe(630);
+    imagedestroy($image);
 });
