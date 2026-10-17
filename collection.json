@@ -3,6 +3,7 @@
     "id": "3neti-system",
     "designs": [
         "designs/steampunk/1/stamp.json",
+        "designs/steampunk/2/stamp.json",
         "designs/cats/1/stamp.json",
         "designs/valentine/1/stamp.json"
     ],
@@ -15,11 +16,16 @@
         "designs/cats/1/preview.png": "8812812b555c993e6fb4b21a31227449cb0de1e69c7ee7303ba0c577aaa0cfb1",
         "designs/steampunk/1/preview.png": "d3087aa536ae67994257730ea39aa1b08138ed1a3410b295e64a5937ba35cd86",
         "designs/valentine/1/preview.png": "07d91c65c48dd920e61340bdf9c043721f53069d62cc8b0c2af2497dc345289a",
-        "assets/artwork/heart.png": "bd2ba0aec6331d23b9b1df1198fa7a248fda95249f74e3daf16d63b9709c43ef"
+        "assets/artwork/heart.png": "bd2ba0aec6331d23b9b1df1198fa7a248fda95249f74e3daf16d63b9709c43ef",
+        "assets/artwork/g-clef-watermark.svg": "515d1da960d5f9d9bdb54b296dc4feb90f585f0ec41421fed58705151b29b5ca",
+        "assets/artwork/g-clef-watermark.png": "d73c67df9add68fdd36aae7777a0e628c892a82584042227f489073db0174197",
+        "designs/steampunk/2/stamp.json": "7ca207fc46550cea24960599ea2ab1cdf2a3a66cf00ef1b7abac752f2555d838",
+        "designs/steampunk/2/preview.png": "32dbe7a63ed751d1580a1bc392eb2681690c3b384c01c6f521ef7fb59ef9529f"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
         "steampunk@1": "designs/steampunk/1/preview.png",
-        "valentine@1": "designs/valentine/1/preview.png"
+        "valentine@1": "designs/valentine/1/preview.png",
+        "steampunk@2": "designs/steampunk/2/preview.png"
     }
 }

@@ -1,0 +1,229 @@
+{
+    "schema": "x-stamp/1",
+    "id": "steampunk",
+    "revision": 2,
+    "name": "Steampunk",
+    "width": 1200,
+    "height": 630,
+    "background": "#F5E6C8",
+    "foreground": "#3F2A14",
+    "font": "assets/fonts/NotoSans.ttf",
+    "layers": [
+        {
+            "type": "rectangle",
+            "x": 24,
+            "y": 24,
+            "width": 1152,
+            "height": 582,
+            "color": "#A16207",
+            "radius": 24
+        },
+        {
+            "type": "rectangle",
+            "x": 29,
+            "y": 29,
+            "width": 1142,
+            "height": 572,
+            "color": "#F5E6C8",
+            "radius": 20
+        },
+        {
+            "type": "rectangle",
+            "x": 1012,
+            "y": 64,
+            "width": 16,
+            "height": 12,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 1012,
+            "y": 155,
+            "width": 16,
+            "height": 12,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 969,
+            "y": 107,
+            "width": 12,
+            "height": 16,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 1060,
+            "y": 107,
+            "width": 12,
+            "height": 16,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 1076,
+            "y": 150,
+            "width": 14,
+            "height": 10,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 1076,
+            "y": 215,
+            "width": 14,
+            "height": 10,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 1045,
+            "y": 181,
+            "width": 10,
+            "height": 14,
+            "color": "#A16207"
+        },
+        {
+            "type": "rectangle",
+            "x": 1110,
+            "y": 181,
+            "width": 10,
+            "height": 14,
+            "color": "#A16207"
+        },
+        {
+            "type": "circle",
+            "x": 975,
+            "y": 70,
+            "width": 90,
+            "height": 90,
+            "color": "#A16207"
+        },
+        {
+            "type": "circle",
+            "x": 983,
+            "y": 78,
+            "width": 74,
+            "height": 74,
+            "color": "#F5E6C8"
+        },
+        {
+            "type": "circle",
+            "x": 1050,
+            "y": 155,
+            "width": 65,
+            "height": 65,
+            "color": "#A16207"
+        },
+        {
+            "type": "circle",
+            "x": 1058,
+            "y": 163,
+            "width": 49,
+            "height": 49,
+            "color": "#F5E6C8"
+        },
+        {
+            "type": "circle",
+            "x": 940,
+            "y": 245,
+            "width": 45,
+            "height": 45,
+            "color": "#A16207"
+        },
+        {
+            "type": "circle",
+            "x": 948,
+            "y": 253,
+            "width": 29,
+            "height": 29,
+            "color": "#F5E6C8"
+        },
+        {
+            "type": "image",
+            "x": 345,
+            "y": 60,
+            "width": 510,
+            "height": 510,
+            "color": "#3F2A14",
+            "asset": "assets/artwork/g-clef-watermark.png"
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 65,
+            "width": 800,
+            "height": 60,
+            "size": 32,
+            "color": "#3F2A14",
+            "slot": "brand",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 155,
+            "width": 800,
+            "height": 100,
+            "size": 72,
+            "color": "#3F2A14",
+            "slot": "amount",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 280,
+            "width": 790,
+            "height": 70,
+            "size": 28,
+            "color": "#3F2A14",
+            "slot": "recipient",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 355,
+            "width": 790,
+            "height": 100,
+            "size": 26,
+            "color": "#3F2A14",
+            "slot": "purpose",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 485,
+            "width": 790,
+            "height": 50,
+            "size": 20,
+            "color": "#3F2A14",
+            "slot": "expiry",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 540,
+            "width": 790,
+            "height": 45,
+            "size": 18,
+            "color": "#3F2A14",
+            "slot": "instructions",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 115,
+            "width": 800,
+            "height": 28,
+            "color": "#3F2A14",
+            "slot": "tagline",
+            "size": 16,
+            "max_lines": 1
+        }
+    ]
+}
