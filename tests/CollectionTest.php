@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -131,4 +131,28 @@ it('keeps every Cats revision 3 foreground element identical to Steampunk revisi
     expect(array_slice($cats, 1))->toBe(array_slice($steampunk, 1));
     expect($cats[0]['asset'])->toBe('assets/artwork/cats-starbucks-v2.jpg');
     expect($cats[0]['fit'])->toBe('cover');
+});
+
+it('removes only the decorative G-clef from the latest Cats and Steampunk revisions', function (string $id, int $oldRevision, int $newRevision) {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $renderer = new Renderer;
+    $slots = ['brand' => 'Pay Code', 'amount' => '₱1,000.00', 'purpose' => "Money should adapt to people.\nNot the other way around."];
+    $before = $renderer->layout($catalog->resolve($id, $oldRevision), $slots);
+    $expected = array_values(array_filter($before, fn (array $layer): bool => ! str_contains($layer['asset'] ?? '', 'g-clef')));
+    expect($renderer->layout($catalog->resolve($id, $newRevision), $slots))->toBe($expected);
+})->with([['steampunk', 4, 5], ['cats', 3, 4]]);
+
+it('omits decorative G-clef branding from all default designs except explicitly retained historical revisions', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $historical = ['steampunk@2', 'steampunk@3', 'steampunk@4', 'cats@2', 'cats@3'];
+    foreach ($catalog->all() as $design) {
+        if (in_array($design->id().'@'.$design->revision(), $historical, true)) {
+            continue;
+        }
+        $layers = (new Renderer)->layout($design);
+        $marks = array_filter($layers, fn (array $layer): bool => str_contains($layer['asset'] ?? '', 'g-clef'));
+        expect($marks)->toBeEmpty();
+    }
 });

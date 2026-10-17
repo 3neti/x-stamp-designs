@@ -1,0 +1,109 @@
+{
+    "schema": "x-stamp/1",
+    "id": "cats",
+    "revision": 4,
+    "name": "Cats",
+    "width": 1200,
+    "height": 630,
+    "background": "#101719",
+    "foreground": "#F8EDD4",
+    "font": "assets/fonts/NotoSans.ttf",
+    "layers": [
+        {
+            "type": "image",
+            "x": 0,
+            "y": 0,
+            "width": 1200,
+            "height": 630,
+            "color": "#101719",
+            "asset": "assets/artwork/cats-starbucks-v2.jpg",
+            "fit": "cover"
+        },
+        {
+            "type": "image",
+            "x": 0,
+            "y": 0,
+            "width": 1200,
+            "height": 630,
+            "color": "#101719",
+            "asset": "assets/artwork/steampunk-readability-v3.png"
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 65,
+            "width": 800,
+            "height": 60,
+            "size": 32,
+            "color": "#DDBB84",
+            "slot": "brand",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 155,
+            "width": 800,
+            "height": 100,
+            "size": 72,
+            "color": "#F8EDD4",
+            "slot": "amount",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 280,
+            "width": 790,
+            "height": 70,
+            "size": 28,
+            "color": "#F8EDD4",
+            "slot": "recipient",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 355,
+            "width": 790,
+            "height": 100,
+            "size": 26,
+            "color": "#F8EDD4",
+            "slot": "purpose",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 485,
+            "width": 790,
+            "height": 50,
+            "size": 20,
+            "color": "#F8EDD4",
+            "slot": "expiry",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 540,
+            "width": 790,
+            "height": 45,
+            "size": 18,
+            "color": "#F8EDD4",
+            "slot": "instructions",
+            "max_lines": 2
+        },
+        {
+            "type": "text",
+            "x": 65,
+            "y": 115,
+            "width": 800,
+            "height": 28,
+            "color": "#DDBB84",
+            "slot": "tagline",
+            "size": 16,
+            "max_lines": 1
+        }
+    ]
+}
