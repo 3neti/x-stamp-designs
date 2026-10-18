@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'cats', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'cats', 'cats', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -182,3 +182,14 @@ it('requires optional provider identity slots in subsequent system designs', fun
         expect($design->slots())->toContain('provider_logo', 'provider_name');
     }
 });
+
+it('places either provider identity before Pay Code while keeping other content unchanged', function (string $id, int $previous, int $revision) {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve($id, $revision);
+    $slots = array_column(array_filter($design->document['layers'], fn ($layer) => isset($layer['slot'])), null, 'slot');
+    expect($slots['provider_logo']['x'])->toBeLessThan($slots['brand']['x']);
+    expect($slots['provider_name']['x'] + $slots['provider_name']['width'])->toBeLessThan($slots['brand']['x']);
+    $content = fn ($stamp) => array_values(array_filter($stamp->document['layers'], fn ($layer) => ! in_array($layer['slot'] ?? '', ['brand', 'provider_logo', 'provider_name'], true)));
+    expect($content($design))->toBe($content($catalog->resolve($id, $previous)));
+})->with([['steampunk', 6, 7], ['cats', 5, 6]]);
