@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'cats', 'cats', 'cats', 'valentine']);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -193,3 +193,11 @@ it('places either provider identity before Pay Code while keeping other content 
     $content = fn ($stamp) => array_values(array_filter($stamp->document['layers'], fn ($layer) => ! in_array($layer['slot'] ?? '', ['brand', 'provider_logo', 'provider_name'], true)));
     expect($content($design))->toBe($content($catalog->resolve($id, $previous)));
 })->with([['steampunk', 6, 7], ['cats', 5, 6]]);
+
+it('exposes supported customization on new revisions without changing historical documents', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    expect($catalog->resolve('cats', 7)->document['customization']['controls'])->toContain('crop', 'qr', 'darkening', 'tagline');
+    expect($catalog->resolve('steampunk', 8)->document['customization']['controls'])->not->toContain('crop');
+    expect($catalog->resolve('cats', 6)->document)->not->toHaveKey('customization');
+});
