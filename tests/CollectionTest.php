@@ -1,12 +1,13 @@
 <?php
 
+use LBHurtado\XStamp\Appearance;
 use LBHurtado\XStamp\Catalog;
 use LBHurtado\XStamp\Renderer;
 
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -200,4 +201,24 @@ it('exposes supported customization on new revisions without changing historical
     expect($catalog->resolve('cats', 7)->document['customization']['controls'])->toContain('crop', 'qr', 'darkening', 'tagline');
     expect($catalog->resolve('steampunk', 8)->document['customization']['controls'])->not->toContain('crop');
     expect($catalog->resolve('cats', 6)->document)->not->toHaveKey('customization');
+});
+
+it('discovers Constellation with the current shared layout and an adjustable portrait crop', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve('constellation', 1);
+    $cats = $catalog->resolve('cats', 7);
+    expect($design->document['name'])->toBe('Constellation');
+    expect(array_slice($design->document['layers'], 1))->toBe(array_slice($cats->document['layers'], 1));
+    expect($design->document['layers'][0]['fit'])->toBe('cover');
+    expect($design->document['customization']['defaults']['crop'])->toBe('top');
+    $appearance = new Appearance;
+    $top = $appearance->apply($design, $appearance->resolve($design));
+    $bottom = $appearance->apply($design, $appearance->resolve($design, ['crop' => 'bottom']));
+    $renderer = new Renderer;
+    expect($renderer->png($top))->not->toBe($renderer->png($bottom));
+    expect($renderer->svg($top))->toContain('xMidYMin slice');
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['constellation@1'])->toBe('designs/constellation/1/preview.png');
+    expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['constellation@1']))->toMatchArray([0 => 1200, 1 => 630]);
 });
