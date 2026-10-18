@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -221,4 +221,19 @@ it('discovers Constellation with the current shared layout and an adjustable por
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
     expect($manifest['thumbnails']['constellation@1'])->toBe('designs/constellation/1/preview.png');
     expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['constellation@1']))->toMatchArray([0 => 1200, 1 => 630]);
+});
+
+it('offers Planetary Rose while keeping Valentine available only for historical stamps', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $choices = array_map(fn ($design) => $design->id(), $catalog->selectable());
+    expect($choices)->toContain('planetary-rose', 'constellation')->not->toContain('valentine');
+    $rose = $catalog->resolve('planetary-rose', 1);
+    expect($rose->document['name'])->toBe('Planetary Rose');
+    expect(array_slice($rose->document['layers'], 1))->toBe(array_slice($catalog->resolve('cats', 7)->document['layers'], 1));
+    expect($rose->document['customization']['controls'])->toContain('crop', 'darkening', 'tagline', 'qr');
+    $historical = $catalog->resolve('valentine', 1);
+    expect(getimagesizefromstring((new Renderer)->png($historical, ['amount' => '₱500']))[0])->toBe(1200);
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['planetary-rose@1'])->toBe('designs/planetary-rose/1/preview.png');
 });
