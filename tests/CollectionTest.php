@@ -6,7 +6,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'cats', 'valentine']);
+    expect(array_map(fn ($design) => $design->id(), $catalog->all()))->toBe(['steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'steampunk', 'cats', 'cats', 'cats', 'cats', 'cats', 'valentine']);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -154,5 +154,31 @@ it('omits decorative G-clef branding from all default designs except explicitly 
         $layers = (new Renderer)->layout($design);
         $marks = array_filter($layers, fn (array $layer): bool => str_contains($layer['asset'] ?? '', 'g-clef'));
         expect($marks)->toBeEmpty();
+    }
+});
+
+it('reserves portable provider identity without bundling provider branding or moving financial content', function (string $id, int $previous, int $revision) {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve($id, $revision);
+    expect($design->slots())->toContain('provider_logo', 'provider_name');
+    $financial = fn ($stamp) => array_values(array_filter($stamp->document['layers'], fn ($layer) => in_array($layer['slot'] ?? '', ['amount', 'recipient', 'purpose', 'expiry', 'instructions', 'tagline'], true)));
+    expect($financial($design))->toBe($financial($catalog->resolve($id, $previous)));
+    $renderer = new Renderer;
+    expect($renderer->svg($design, ['provider_name' => 'Example Bank']))->toContain('Example Bank')->not->toContain('NetBank');
+    $logo = array_values(array_filter($design->document['layers'], fn ($layer) => ($layer['slot'] ?? '') === 'provider_logo'))[0];
+    expect($logo['fit'])->toBe('contain');
+    expect($logo)->not->toHaveKey('asset');
+})->with([['steampunk', 5, 6], ['cats', 4, 5]]);
+
+it('requires optional provider identity slots in subsequent system designs', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $historical = ['steampunk' => 5, 'cats' => 4, 'valentine' => 1];
+    foreach ($catalog->all() as $design) {
+        if ($design->revision() <= ($historical[$design->id()] ?? 0)) {
+            continue;
+        }
+        expect($design->slots())->toContain('provider_logo', 'provider_name');
     }
 });

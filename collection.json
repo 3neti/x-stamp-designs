@@ -7,10 +7,12 @@
         "designs/steampunk/3/stamp.json",
         "designs/steampunk/4/stamp.json",
         "designs/steampunk/5/stamp.json",
+        "designs/steampunk/6/stamp.json",
         "designs/cats/1/stamp.json",
         "designs/cats/2/stamp.json",
         "designs/cats/3/stamp.json",
         "designs/cats/4/stamp.json",
+        "designs/cats/5/stamp.json",
         "designs/valentine/1/stamp.json"
     ],
     "files": {
@@ -45,7 +47,11 @@
         "designs/steampunk/5/stamp.json": "79083ef23ffbac8426fd272210d023dc9559c987eb007b8c9d83b1a72c244b7b",
         "designs/cats/4/stamp.json": "9f7ab3489df7e8faab852b727666071da582905221ac5691350f204df6d3e75a",
         "designs/steampunk/5/preview.png": "3955fef4579bd62465f2f457811843316eb20233a4dfbbdf0f956cbed79cee08",
-        "designs/cats/4/preview.png": "903a088cb702ef28bfafcc6edfe49ed9b33074c267efe81cad3ef273fad7b255"
+        "designs/cats/4/preview.png": "903a088cb702ef28bfafcc6edfe49ed9b33074c267efe81cad3ef273fad7b255",
+        "designs/steampunk/6/stamp.json": "dc18b801239e3075a831535123271563e4ba5e46dbcb77b045d60c293d0563eb",
+        "designs/cats/5/stamp.json": "9baaa87459088e81f00a15c30eafe60f93fef6fb71ea5e77b608bb7c31f6f017",
+        "designs/steampunk/6/preview.png": "d26e3cebfe50d73e6061bd1fb6d6869ff0aee738c043e821717479745864f62b",
+        "designs/cats/5/preview.png": "377c69145f7ad7bf11ce48a62659188f7bc7aeae2a765b495f80af105dd993ba"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -57,6 +63,8 @@
         "cats@2": "designs/cats/2/preview.png",
         "cats@3": "designs/cats/3/preview.png",
         "steampunk@5": "designs/steampunk/5/preview.png",
-        "cats@4": "designs/cats/4/preview.png"
+        "cats@4": "designs/cats/4/preview.png",
+        "steampunk@6": "designs/steampunk/6/preview.png",
+        "cats@5": "designs/cats/5/preview.png"
     }
 }

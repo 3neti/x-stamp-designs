@@ -6,6 +6,9 @@
     "require": {
         "php": "^8.4"
     },
+    "conflict": {
+        "3neti/x-stamp": "<1.1"
+    },
     "extra": {
         "x-stamp": {
             "collection": "collection.json"
