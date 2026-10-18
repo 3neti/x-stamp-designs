@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -236,4 +236,32 @@ it('offers Planetary Rose while keeping Valentine available only for historical 
     expect(getimagesizefromstring((new Renderer)->png($historical, ['amount' => '₱500']))[0])->toBe(1200);
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
     expect($manifest['thumbnails']['planetary-rose@1'])->toBe('designs/planetary-rose/1/preview.png');
+});
+
+it('offers Jeans with the shared layout and adjustable denim artwork', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    expect(array_map(fn ($design) => $design->id(), $catalog->selectable()))->toContain('jeans');
+    $design = $catalog->resolve('jeans', 1);
+    expect($design->document['name'])->toBe('Jeans');
+    expect(array_slice($design->document['layers'], 1))->toBe(array_slice($catalog->resolve('cats', 7)->document['layers'], 1));
+    $appearance = new Appearance;
+    $resolved = $appearance->resolve($design);
+    expect($resolved['options'])->toMatchArray(['crop' => 'bottom', 'darkening' => 20]);
+    $bottom = $appearance->apply($design, $resolved);
+    $top = $appearance->apply($design, $appearance->resolve($design, ['crop' => 'top']));
+    expect((new Renderer)->png($bottom))->not->toBe((new Renderer)->png($top));
+    $bytes = file_get_contents($design->asset('assets/artwork/jeans-v1.png'));
+    $chunks = [];
+    for ($offset = 8; $offset < strlen($bytes);) {
+        $length = unpack('N', substr($bytes, $offset, 4))[1];
+        $chunks[] = substr($bytes, $offset + 4, 4);
+        $offset += $length + 12;
+    }
+    expect($chunks)->not->toContain('eXIf', 'iTXt', 'tEXt', 'zTXt');
+    $source = getimagesize($design->asset('assets/artwork/jeans-v1.png'));
+    expect([$source[0], $source[1]])->toBe([680, 717]);
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['jeans@1'])->toBe('designs/jeans/1/preview.png');
+    expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['jeans@1']))->toMatchArray([0 => 1200, 1 => 630]);
 });

@@ -19,7 +19,8 @@
         "designs/cats/7/stamp.json",
         "designs/valentine/1/stamp.json",
         "designs/constellation/1/stamp.json",
-        "designs/planetary-rose/1/stamp.json"
+        "designs/planetary-rose/1/stamp.json",
+        "designs/jeans/1/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -71,7 +72,10 @@
         "designs/constellation/1/preview.png": "dadf015c1046cfd4ef9ec1b882e602a0b253644cea1e58933db89e560164a708",
         "assets/artwork/planetary-rose-v1.png": "069635a73f2b31ff9302f101f2649dbe014874bddff6c58a997e0adb36e92e83",
         "designs/planetary-rose/1/stamp.json": "9ab501cc9170f0c6db4d11c1726d78954ac5949ac7033084480c17876468f9a6",
-        "designs/planetary-rose/1/preview.png": "d7a3a498e43a57c5c43c984fcd3b11be1c4db42d9b8100f54b073499184ac01d"
+        "designs/planetary-rose/1/preview.png": "d7a3a498e43a57c5c43c984fcd3b11be1c4db42d9b8100f54b073499184ac01d",
+        "assets/artwork/jeans-v1.png": "fbb07ba27131b51ce5ce86db7433e14f8f891055850da22e52e500a60d675969",
+        "designs/jeans/1/stamp.json": "c28aa6b6213314fd10bfbdaac90e5768df8b32533edf37790ea26011f096f5a5",
+        "designs/jeans/1/preview.png": "21bfd53f88ddea561a6543e06a7788de274d0bb6f57dfda4467af9f88a0e046c"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -91,7 +95,8 @@
         "steampunk@8": "designs/steampunk/8/preview.png",
         "cats@7": "designs/cats/7/preview.png",
         "constellation@1": "designs/constellation/1/preview.png",
-        "planetary-rose@1": "designs/planetary-rose/1/preview.png"
+        "planetary-rose@1": "designs/planetary-rose/1/preview.png",
+        "jeans@1": "designs/jeans/1/preview.png"
     },
     "retired_designs": [
         "valentine"
