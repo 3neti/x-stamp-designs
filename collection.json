@@ -21,7 +21,9 @@
         "designs/constellation/1/stamp.json",
         "designs/planetary-rose/1/stamp.json",
         "designs/jeans/1/stamp.json",
-        "designs/anime-zoro/1/stamp.json"
+        "designs/anime-zoro/1/stamp.json",
+        "designs/little-prince/1/stamp.json",
+        "designs/black-parade/1/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -79,7 +81,13 @@
         "designs/jeans/1/preview.png": "21bfd53f88ddea561a6543e06a7788de274d0bb6f57dfda4467af9f88a0e046c",
         "assets/artwork/zoro-nothing-happened-steampunk-v1.png": "01a25df04772fd39379ffcc3984a50312112a5a8207446148c86f8e0655de9ee",
         "designs/anime-zoro/1/stamp.json": "2d5572a03a6747d1d4d0e05452d3b102f5a796a7edf102fc29fab9b1d219f541",
-        "designs/anime-zoro/1/preview.png": "33b70a9d6a2b873a92da9250ce917aaf126e8c1c442f79e80e8800c05526f921"
+        "designs/anime-zoro/1/preview.png": "33b70a9d6a2b873a92da9250ce917aaf126e8c1c442f79e80e8800c05526f921",
+        "assets/artwork/little-prince-steampunk-v1.png": "eb8847aad8b4b49a63100a7cfca4f5b7b41225ac0f9cb48be8b001c239a2c025",
+        "designs/little-prince/1/stamp.json": "00f8d6010ab6fd3e8efa77ca619e2e92173582f9085a2395305eba351ac94ab9",
+        "designs/little-prince/1/preview.png": "e897e8e259734922727c34bceb418c28c103c4d9b4ae1175edec517fdbd9f82f",
+        "assets/artwork/black-parade-v1.png": "00a3b282753230a9cd5df8ce10b1c315595ed032b35f5f583ba01d61f2e2218d",
+        "designs/black-parade/1/stamp.json": "e98d3474ec526fb39bc65ae6319fd84ec153050006f02ab2c65fa59be0488dbf",
+        "designs/black-parade/1/preview.png": "e82ad9cdf92f00951e0ab860ed76a6c8a0fd7d313f9550b40c8007ce733b40c9"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -101,7 +109,9 @@
         "constellation@1": "designs/constellation/1/preview.png",
         "planetary-rose@1": "designs/planetary-rose/1/preview.png",
         "jeans@1": "designs/jeans/1/preview.png",
-        "anime-zoro@1": "designs/anime-zoro/1/preview.png"
+        "anime-zoro@1": "designs/anime-zoro/1/preview.png",
+        "little-prince@1": "designs/little-prince/1/preview.png",
+        "black-parade@1": "designs/black-parade/1/preview.png"
     },
     "retired_designs": [
         "valentine"
