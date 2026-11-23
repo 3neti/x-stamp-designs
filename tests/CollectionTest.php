@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -264,4 +264,17 @@ it('offers Jeans with the shared layout and adjustable denim artwork', function 
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
     expect($manifest['thumbnails']['jeans@1'])->toBe('designs/jeans/1/preview.png');
     expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['jeans@1']))->toMatchArray([0 => 1200, 1 => 630]);
+});
+
+it('offers Anime: Zoro as a selectable design with its artwork and preview', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    expect(array_map(fn ($design) => $design->id(), $catalog->selectable()))->toContain('anime-zoro');
+    $design = $catalog->resolve('anime-zoro', 1);
+    expect($design->document['name'])->toBe('Anime: Zoro');
+    expect($design->document['layers'][0]['asset'])->toBe('assets/artwork/zoro-nothing-happened-steampunk-v1.png');
+    expect((new Appearance)->resolve($design)['options']['crop'])->toBe('center');
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['anime-zoro@1'])->toBe('designs/anime-zoro/1/preview.png');
+    expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['anime-zoro@1']))->toMatchArray([0 => 1200, 1 => 630]);
 });

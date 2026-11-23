@@ -20,7 +20,8 @@
         "designs/valentine/1/stamp.json",
         "designs/constellation/1/stamp.json",
         "designs/planetary-rose/1/stamp.json",
-        "designs/jeans/1/stamp.json"
+        "designs/jeans/1/stamp.json",
+        "designs/anime-zoro/1/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -75,7 +76,10 @@
         "designs/planetary-rose/1/preview.png": "d7a3a498e43a57c5c43c984fcd3b11be1c4db42d9b8100f54b073499184ac01d",
         "assets/artwork/jeans-v1.png": "fbb07ba27131b51ce5ce86db7433e14f8f891055850da22e52e500a60d675969",
         "designs/jeans/1/stamp.json": "c28aa6b6213314fd10bfbdaac90e5768df8b32533edf37790ea26011f096f5a5",
-        "designs/jeans/1/preview.png": "21bfd53f88ddea561a6543e06a7788de274d0bb6f57dfda4467af9f88a0e046c"
+        "designs/jeans/1/preview.png": "21bfd53f88ddea561a6543e06a7788de274d0bb6f57dfda4467af9f88a0e046c",
+        "assets/artwork/zoro-nothing-happened-steampunk-v1.png": "01a25df04772fd39379ffcc3984a50312112a5a8207446148c86f8e0655de9ee",
+        "designs/anime-zoro/1/stamp.json": "2d5572a03a6747d1d4d0e05452d3b102f5a796a7edf102fc29fab9b1d219f541",
+        "designs/anime-zoro/1/preview.png": "33b70a9d6a2b873a92da9250ce917aaf126e8c1c442f79e80e8800c05526f921"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -96,7 +100,8 @@
         "cats@7": "designs/cats/7/preview.png",
         "constellation@1": "designs/constellation/1/preview.png",
         "planetary-rose@1": "designs/planetary-rose/1/preview.png",
-        "jeans@1": "designs/jeans/1/preview.png"
+        "jeans@1": "designs/jeans/1/preview.png",
+        "anime-zoro@1": "designs/anime-zoro/1/preview.png"
     },
     "retired_designs": [
         "valentine"
