@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -303,4 +303,16 @@ it('offers The Black Parade with full-bleed artwork behind the payment details',
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
     expect($manifest['thumbnails']['black-parade@1'])->toBe('designs/black-parade/1/preview.png');
     expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['black-parade@1']))->toMatchArray([0 => 1200, 1 => 630]);
+});
+
+it('preserves the original Black Parade while adding the revised logo placement', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $original = $catalog->resolve('black-parade', 1);
+    $revised = $catalog->resolve('black-parade', 2);
+    expect($original->document['layers'][0]['asset'])->toBe('assets/artwork/black-parade-v1.png');
+    expect($revised->document['layers'][0]['asset'])->toBe('assets/artwork/black-parade-v2.png');
+    expect(array_slice($revised->document['layers'], 1))->toBe(array_slice($original->document['layers'], 1));
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['black-parade@2'])->toBe('designs/black-parade/2/preview.png');
 });

@@ -23,7 +23,8 @@
         "designs/jeans/1/stamp.json",
         "designs/anime-zoro/1/stamp.json",
         "designs/little-prince/1/stamp.json",
-        "designs/black-parade/1/stamp.json"
+        "designs/black-parade/1/stamp.json",
+        "designs/black-parade/2/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -87,7 +88,10 @@
         "designs/little-prince/1/preview.png": "e897e8e259734922727c34bceb418c28c103c4d9b4ae1175edec517fdbd9f82f",
         "assets/artwork/black-parade-v1.png": "00a3b282753230a9cd5df8ce10b1c315595ed032b35f5f583ba01d61f2e2218d",
         "designs/black-parade/1/stamp.json": "e98d3474ec526fb39bc65ae6319fd84ec153050006f02ab2c65fa59be0488dbf",
-        "designs/black-parade/1/preview.png": "e82ad9cdf92f00951e0ab860ed76a6c8a0fd7d313f9550b40c8007ce733b40c9"
+        "designs/black-parade/1/preview.png": "e82ad9cdf92f00951e0ab860ed76a6c8a0fd7d313f9550b40c8007ce733b40c9",
+        "assets/artwork/black-parade-v2.png": "fb4592e0388aba55822f04d4f45989eb8ab82478582566ca29559fca4200d07d",
+        "designs/black-parade/2/stamp.json": "182779ea9c52056ef5f3f7ad7b4857b6659741a344802130c95be2d02f37268d",
+        "designs/black-parade/2/preview.png": "33397ede9e98fdfc1183a37d8cc119ecf2d813b9dcd68e5f98df734998431381"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -111,7 +115,8 @@
         "jeans@1": "designs/jeans/1/preview.png",
         "anime-zoro@1": "designs/anime-zoro/1/preview.png",
         "little-prince@1": "designs/little-prince/1/preview.png",
-        "black-parade@1": "designs/black-parade/1/preview.png"
+        "black-parade@1": "designs/black-parade/1/preview.png",
+        "black-parade@2": "designs/black-parade/2/preview.png"
     },
     "retired_designs": [
         "valentine"
