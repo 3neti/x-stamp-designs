@@ -24,7 +24,9 @@
         "designs/anime-zoro/1/stamp.json",
         "designs/little-prince/1/stamp.json",
         "designs/black-parade/1/stamp.json",
-        "designs/black-parade/2/stamp.json"
+        "designs/black-parade/2/stamp.json",
+        "designs/toblerone/1/stamp.json",
+        "designs/aurora/1/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -91,7 +93,13 @@
         "designs/black-parade/1/preview.png": "e82ad9cdf92f00951e0ab860ed76a6c8a0fd7d313f9550b40c8007ce733b40c9",
         "assets/artwork/black-parade-v2.png": "fb4592e0388aba55822f04d4f45989eb8ab82478582566ca29559fca4200d07d",
         "designs/black-parade/2/stamp.json": "182779ea9c52056ef5f3f7ad7b4857b6659741a344802130c95be2d02f37268d",
-        "designs/black-parade/2/preview.png": "33397ede9e98fdfc1183a37d8cc119ecf2d813b9dcd68e5f98df734998431381"
+        "designs/black-parade/2/preview.png": "33397ede9e98fdfc1183a37d8cc119ecf2d813b9dcd68e5f98df734998431381",
+        "assets/artwork/toblerone-alps-v1.png": "db5162e5b7779d7234ffc5faecbd31b35752f32c8e16a79f9a3af04b1974e780",
+        "designs/toblerone/1/stamp.json": "4c48197806bb5ca6d1b67c5828fe25850c3bca05ddaaa72dbe935ec8c26d6bf7",
+        "designs/toblerone/1/preview.png": "e89a3df14e561eb2d99766a677ceea9802225e6999fde01929fa265f3a294836",
+        "assets/artwork/aurora-v1.png": "1aa02aa4ff44994670aaea3ad99b494e724503945c7ab2d5ae0c18484cea015a",
+        "designs/aurora/1/stamp.json": "452ef5fbce251fabe51940e746963df7832a589a6048a0d57d7df51d78ac1d5d",
+        "designs/aurora/1/preview.png": "864ab9ce00251eb40edaf28461a79cc584353acf8b15248575fe73e036afb5fd"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -116,7 +124,9 @@
         "anime-zoro@1": "designs/anime-zoro/1/preview.png",
         "little-prince@1": "designs/little-prince/1/preview.png",
         "black-parade@1": "designs/black-parade/1/preview.png",
-        "black-parade@2": "designs/black-parade/2/preview.png"
+        "black-parade@2": "designs/black-parade/2/preview.png",
+        "toblerone@1": "designs/toblerone/1/preview.png",
+        "aurora@1": "designs/aurora/1/preview.png"
     },
     "retired_designs": [
         "valentine"

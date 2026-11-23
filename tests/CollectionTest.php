@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -315,4 +315,28 @@ it('preserves the original Black Parade while adding the revised logo placement'
     expect(array_slice($revised->document['layers'], 1))->toBe(array_slice($original->document['layers'], 1));
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
     expect($manifest['thumbnails']['black-parade@2'])->toBe('designs/black-parade/2/preview.png');
+});
+
+it('offers Toblerone with the Alpine artwork and a catalog preview', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    expect(array_map(fn ($design) => $design->id(), $catalog->selectable()))->toContain('toblerone');
+    $design = $catalog->resolve('toblerone', 1);
+    expect($design->document['name'])->toBe('Toblerone');
+    expect($design->document['layers'][0]['asset'])->toBe('assets/artwork/toblerone-alps-v1.png');
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['toblerone@1'])->toBe('designs/toblerone/1/preview.png');
+    expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['toblerone@1']))->toMatchArray([0 => 1200, 1 => 630]);
+});
+
+it('offers Aurora with the expedition artwork and a catalog preview', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    expect(array_map(fn ($design) => $design->id(), $catalog->selectable()))->toContain('aurora');
+    $design = $catalog->resolve('aurora', 1);
+    expect($design->document['name'])->toBe('Aurora');
+    expect($design->document['layers'][0]['asset'])->toBe('assets/artwork/aurora-v1.png');
+    $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
+    expect($manifest['thumbnails']['aurora@1'])->toBe('designs/aurora/1/preview.png');
+    expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['aurora@1']))->toMatchArray([0 => 1200, 1 => 630]);
 });
