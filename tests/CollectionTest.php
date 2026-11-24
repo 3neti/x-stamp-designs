@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 2]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 3]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -351,4 +351,16 @@ it('offers Davao Sunrise with the cabin artwork and a catalog preview', function
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/collection.json'), true);
     expect($manifest['thumbnails']['davao-sunrise@1'])->toBe('designs/davao-sunrise/1/preview.png');
     expect(getimagesize(dirname(__DIR__).'/'.$manifest['thumbnails']['davao-sunrise@1']))->toMatchArray([0 => 1200, 1 => 630]);
+});
+
+it('renames the Alice design without changing its artwork or historical revision', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $old = $catalog->resolve('alice-wonderland', 2);
+    $new = $catalog->resolve('alice-wonderland', 3);
+    expect($old->document['name'])->toBe('Alice in the Wonderland');
+    expect($new->document['name'])->toBe('Alice in Wonderland');
+    expect($new->document['layers'])->toBe($old->document['layers']);
+    expect(file_get_contents(dirname(__DIR__).'/designs/alice-wonderland/3/preview.png'))
+        ->toBe(file_get_contents(dirname(__DIR__).'/designs/alice-wonderland/2/preview.png'));
 });
