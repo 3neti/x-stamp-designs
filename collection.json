@@ -26,7 +26,9 @@
         "designs/black-parade/1/stamp.json",
         "designs/black-parade/2/stamp.json",
         "designs/toblerone/1/stamp.json",
-        "designs/aurora/1/stamp.json"
+        "designs/aurora/1/stamp.json",
+        "designs/davao-sunrise/1/stamp.json",
+        "designs/addams-family/1/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -99,7 +101,13 @@
         "designs/toblerone/1/preview.png": "e89a3df14e561eb2d99766a677ceea9802225e6999fde01929fa265f3a294836",
         "assets/artwork/aurora-v1.png": "1aa02aa4ff44994670aaea3ad99b494e724503945c7ab2d5ae0c18484cea015a",
         "designs/aurora/1/stamp.json": "452ef5fbce251fabe51940e746963df7832a589a6048a0d57d7df51d78ac1d5d",
-        "designs/aurora/1/preview.png": "864ab9ce00251eb40edaf28461a79cc584353acf8b15248575fe73e036afb5fd"
+        "designs/aurora/1/preview.png": "864ab9ce00251eb40edaf28461a79cc584353acf8b15248575fe73e036afb5fd",
+        "assets/artwork/davao-sunrise-v1.png": "1422fd5272b1c8ee1991618ee867f919a2f23e5e7a367064600ab478c9a4fde0",
+        "designs/davao-sunrise/1/stamp.json": "abe2e7d0ce9095ca18bc197482eb8f97292b01f2e3dbd1c67f4126208de2acfc",
+        "designs/davao-sunrise/1/preview.png": "ab75f1e12479f6b579d1d8c2638c59b020ae74a876c1b061a263dd3cc42ec9ac",
+        "assets/artwork/addams-family-v1.png": "dc179b848d55630a97332410c8e1c83f7ab3851c885fe0de58b74ed9852d6282",
+        "designs/addams-family/1/stamp.json": "5daa918f59148435e2c73d80e760dbe8b1fa576f739fff75c6b1e990cd592664",
+        "designs/addams-family/1/preview.png": "ce365731ec8049a0c0dfa5959f8a49f348ccae0b4a758bb2367372fba920c1ad"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -126,7 +134,9 @@
         "black-parade@1": "designs/black-parade/1/preview.png",
         "black-parade@2": "designs/black-parade/2/preview.png",
         "toblerone@1": "designs/toblerone/1/preview.png",
-        "aurora@1": "designs/aurora/1/preview.png"
+        "aurora@1": "designs/aurora/1/preview.png",
+        "davao-sunrise@1": "designs/davao-sunrise/1/preview.png",
+        "addams-family@1": "designs/addams-family/1/preview.png"
     },
     "retired_designs": [
         "valentine"
