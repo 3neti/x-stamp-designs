@@ -32,7 +32,8 @@
         "designs/alice-wonderland/1/stamp.json",
         "designs/alice-wonderland/2/stamp.json",
         "designs/alice-wonderland/3/stamp.json",
-        "designs/alice-wonderland/4/stamp.json"
+        "designs/alice-wonderland/4/stamp.json",
+        "designs/alice-wonderland/5/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -122,7 +123,10 @@
         "designs/alice-wonderland/3/preview.png": "bf3e374069ad2843f6333e8cf577f55415577f506b2141ac2e3868dd67532373",
         "assets/artwork/alice-wonderland-v3.png": "3893dfb11632913cc5b251cb8baa5a5c4b58273e241e964861fd434d25804b86",
         "designs/alice-wonderland/4/stamp.json": "9f396531d86a3c6d0fa9262cb37c8985c35b5d6819bf5c45623d9a40234320d3",
-        "designs/alice-wonderland/4/preview.png": "bc609ce83f18422df9fea6177582ac4593a7a29071c056e9c0812521f0c105f8"
+        "designs/alice-wonderland/4/preview.png": "bc609ce83f18422df9fea6177582ac4593a7a29071c056e9c0812521f0c105f8",
+        "assets/artwork/alice-wonderland-v4.png": "c33e7cc8c24fabbaf1dd3d3cf6e69d38b2827205bfc54f8d66be0e2651665ec2",
+        "designs/alice-wonderland/5/stamp.json": "143d856fd501fde28e3907dd89f45f0e6ae793124fee001a020e82eefb61bf51",
+        "designs/alice-wonderland/5/preview.png": "35d9caba6015a86447633d0346464cd675ffc812bc0691c1f9b69b9969033966"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -155,7 +159,8 @@
         "alice-wonderland@1": "designs/alice-wonderland/1/preview.png",
         "alice-wonderland@2": "designs/alice-wonderland/2/preview.png",
         "alice-wonderland@3": "designs/alice-wonderland/3/preview.png",
-        "alice-wonderland@4": "designs/alice-wonderland/4/preview.png"
+        "alice-wonderland@4": "designs/alice-wonderland/4/preview.png",
+        "alice-wonderland@5": "designs/alice-wonderland/5/preview.png"
     },
     "retired_designs": [
         "valentine"
