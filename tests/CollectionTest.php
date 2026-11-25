@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 5, 'starbucks-frappuccinos' => 1, 'soafer' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 5, 'starbucks-frappuccinos' => 1, 'soafer' => 2]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -375,4 +375,18 @@ it('preserves the approved soafer artwork without branding or cropping', functio
     expect($design->slots())->toContain('amount', 'recipient')->not->toContain('provider_logo', 'provider_name');
     expect($design->document['layers'][0]['fit'])->toBe('contain');
     expect(hash_file('sha256', $design->asset('assets/artwork/soafer-v1.png')))->toBe('d00250294e998d8677d9252d40125c2c584784308d9f5a7a0e31989c152eb98f');
+});
+
+
+it('provides every Pay Code field for the soafer revision', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve('soafer', 2);
+    expect($design->slots())->toContain('brand', 'amount', 'recipient', 'purpose', 'expiry', 'instructions');
+    foreach ($design->document['layers'] as $layer) {
+        if (isset($layer['slot'])) {
+            expect($layer['x'] + $layer['width'])->toBeLessThanOrEqual(900);
+            expect($layer['y'] + $layer['height'])->toBeLessThanOrEqual(600);
+        }
+    }
 });

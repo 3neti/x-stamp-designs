@@ -35,7 +35,8 @@
         "designs/alice-wonderland/4/stamp.json",
         "designs/alice-wonderland/5/stamp.json",
         "designs/starbucks-frappuccinos/1/stamp.json",
-        "designs/soafer/1/stamp.json"
+        "designs/soafer/1/stamp.json",
+        "designs/soafer/2/stamp.json"
     ],
     "files": {
         "assets/fonts/NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
@@ -134,7 +135,9 @@
         "designs/starbucks-frappuccinos/1/preview.png": "e51cd02d591414cf4685fc615336a65bde247f71e63fccb8b0d812ee448eefed",
         "assets/artwork/soafer-v1.png": "d00250294e998d8677d9252d40125c2c584784308d9f5a7a0e31989c152eb98f",
         "designs/soafer/1/stamp.json": "a1e0f6a9157507676390e914fd0e5f7745166fdba3570bc3c92e0362da2ced20",
-        "designs/soafer/1/preview.png": "5db2794921f930121665a7c4d38df559dbede1f57082b51bb19b13dddde3edcd"
+        "designs/soafer/1/preview.png": "5db2794921f930121665a7c4d38df559dbede1f57082b51bb19b13dddde3edcd",
+        "designs/soafer/2/stamp.json": "d53825e34470c7059296f090937524ad5f3604f0b9b8b5262fe32301dedb5256",
+        "designs/soafer/2/preview.png": "5db2794921f930121665a7c4d38df559dbede1f57082b51bb19b13dddde3edcd"
     },
     "thumbnails": {
         "cats@1": "designs/cats/1/preview.png",
@@ -170,7 +173,8 @@
         "alice-wonderland@4": "designs/alice-wonderland/4/preview.png",
         "alice-wonderland@5": "designs/alice-wonderland/5/preview.png",
         "starbucks-frappuccinos@1": "designs/starbucks-frappuccinos/1/preview.png",
-        "soafer@1": "designs/soafer/1/preview.png"
+        "soafer@1": "designs/soafer/1/preview.png",
+        "soafer@2": "designs/soafer/2/preview.png"
     },
     "retired_designs": [
         "valentine"

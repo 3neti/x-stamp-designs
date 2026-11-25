@@ -1,0 +1,101 @@
+{
+    "schema": "x-stamp/1",
+    "id": "soafer",
+    "revision": 2,
+    "name": "soafer!",
+    "width": 1200,
+    "height": 630,
+    "background": "#FAF0DF",
+    "foreground": "#312C29",
+    "font": "assets/fonts/NotoSans.ttf",
+    "layers": [
+        {
+            "type": "image",
+            "x": 150,
+            "y": 65,
+            "width": 900,
+            "height": 300,
+            "color": "#FAF0DF",
+            "asset": "assets/artwork/soafer-v1.png",
+            "fit": "contain"
+        },
+        {
+            "type": "text",
+            "slot": "brand",
+            "x": 55,
+            "y": 15,
+            "width": 790,
+            "height": 35,
+            "size": 24,
+            "color": "#312C29",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 55,
+            "y": 375,
+            "width": 800,
+            "height": 70,
+            "size": 48,
+            "color": "#312C29",
+            "slot": "amount",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 55,
+            "y": 457,
+            "width": 800,
+            "height": 35,
+            "size": 25,
+            "color": "#312C29",
+            "slot": "recipient",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 55,
+            "y": 496,
+            "width": 800,
+            "height": 32,
+            "size": 22,
+            "color": "#312C29",
+            "slot": "purpose",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 55,
+            "y": 535,
+            "width": 800,
+            "height": 28,
+            "size": 18,
+            "color": "#312C29",
+            "slot": "expiry",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 55,
+            "y": 570,
+            "width": 800,
+            "height": 28,
+            "size": 18,
+            "color": "#312C29",
+            "slot": "instructions",
+            "max_lines": 1
+        }
+    ],
+    "customization": {
+        "controls": [
+            "qr"
+        ],
+        "artwork_layer": 0,
+        "defaults": {
+            "preset": "transparent",
+            "crop": "center",
+            "darkening": 0,
+            "show_tagline": false
+        }
+    }
+}
