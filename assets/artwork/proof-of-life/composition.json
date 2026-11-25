@@ -1,0 +1,21 @@
+{
+  "canvas": {
+    "width": 4284,
+    "height": 5712
+  },
+  "layers": [
+    {
+      "file": "original-photograph.heic",
+      "opacity": 1
+    },
+    {
+      "file": "stamp-full-opacity.png",
+      "opacity": 0.1
+    },
+    {
+      "file": "ecg-waveform.png",
+      "opacity": 1
+    }
+  ],
+  "note": "Transparent PNG overlays are full-canvas and already positioned. Stamp opacity is applied only when compositing. Composite uses 8-bit alpha quantization."
+}

@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 5, 'starbucks-frappuccinos' => 1, 'soafer' => 3]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 5, 'starbucks-frappuccinos' => 1, 'soafer' => 3, 'proof-of-life' => 2]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -178,7 +178,7 @@ it('requires optional provider identity slots in subsequent system designs', fun
     $historical = ['steampunk' => 5, 'cats' => 4, 'valentine' => 1];
     foreach ($catalog->all() as $design) {
         // This artwork was approved without additional provider branding.
-        if ($design->id() === 'soafer' || $design->revision() <= ($historical[$design->id()] ?? 0)) {
+        if (in_array($design->id(), ['soafer', 'proof-of-life'], true) || $design->revision() <= ($historical[$design->id()] ?? 0)) {
             continue;
         }
         expect($design->slots())->toContain('provider_logo', 'provider_name');
@@ -400,4 +400,18 @@ it('accepts its own saved appearance options for soafer', function () {
     $defaults = $appearance->resolve($design);
     expect($appearance->resolve($design, $defaults['options'])['options'])->toBe($defaults['options']);
     expect($design->slots())->toContain('brand', 'amount', 'recipient', 'purpose', 'expiry', 'instructions');
+});
+
+
+it('preserves the full PROOF OF LIFE portrait and Pay Code fields', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve('proof-of-life', 1);
+    expect($design->slots())->toContain('brand', 'amount', 'recipient', 'purpose', 'expiry', 'instructions');
+    expect($design->document['layers'][0]['fit'])->toBe('contain');
+    $appearance = new Appearance;
+    $resolved = $appearance->resolve($design);
+    expect($appearance->resolve($design, $resolved['options'])['options'])->toBe($resolved['options']);
+    $source = json_decode(file_get_contents(dirname(__DIR__).'/assets/artwork/proof-of-life/composition.json'), true);
+    expect($source['layers'][1]['opacity'])->toBe(0.1);
 });

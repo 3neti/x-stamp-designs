@@ -1,0 +1,101 @@
+{
+    "schema": "x-stamp/1",
+    "id": "proof-of-life",
+    "revision": 1,
+    "name": "PROOF OF LIFE",
+    "width": 1200,
+    "height": 630,
+    "background": "#201D1C",
+    "foreground": "#F8EDD4",
+    "font": "assets/fonts/NotoSans.ttf",
+    "layers": [
+        {
+            "type": "image",
+            "x": 364,
+            "y": 0,
+            "width": 472,
+            "height": 630,
+            "color": "#201D1C",
+            "asset": "assets/artwork/proof-of-life-v1.png",
+            "fit": "contain"
+        },
+        {
+            "type": "text",
+            "x": 35,
+            "y": 60,
+            "width": 310,
+            "height": 40,
+            "size": 22,
+            "color": "#F8EDD4",
+            "slot": "brand",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 35,
+            "y": 145,
+            "width": 310,
+            "height": 72,
+            "size": 40,
+            "color": "#F8EDD4",
+            "slot": "amount",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 35,
+            "y": 258,
+            "width": 310,
+            "height": 55,
+            "size": 21,
+            "color": "#F8EDD4",
+            "slot": "recipient",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 35,
+            "y": 335,
+            "width": 310,
+            "height": 70,
+            "size": 20,
+            "color": "#F8EDD4",
+            "slot": "purpose",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 35,
+            "y": 470,
+            "width": 310,
+            "height": 40,
+            "size": 18,
+            "color": "#F8EDD4",
+            "slot": "expiry",
+            "max_lines": 1
+        },
+        {
+            "type": "text",
+            "x": 35,
+            "y": 530,
+            "width": 310,
+            "height": 40,
+            "size": 16,
+            "color": "#F8EDD4",
+            "slot": "instructions",
+            "max_lines": 1
+        }
+    ],
+    "customization": {
+        "controls": [
+            "qr"
+        ],
+        "artwork_layer": 0,
+        "defaults": {
+            "preset": "transparent",
+            "crop": "center",
+            "darkening": 0,
+            "show_tagline": true
+        }
+    }
+}
