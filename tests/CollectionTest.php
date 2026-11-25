@@ -7,7 +7,7 @@ use LBHurtado\XStamp\Renderer;
 it('validates and renders every immutable design in the distributed collection', function () {
     $catalog = new Catalog;
     $catalog->load(dirname(__DIR__));
-    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 5, 'starbucks-frappuccinos' => 1]);
+    expect(array_count_values(array_map(fn ($design) => $design->id(), $catalog->all())))->toBe(['steampunk' => 8, 'cats' => 7, 'valentine' => 1, 'constellation' => 1, 'planetary-rose' => 1, 'jeans' => 1, 'anime-zoro' => 1, 'little-prince' => 1, 'black-parade' => 2, 'toblerone' => 1, 'aurora' => 1, 'davao-sunrise' => 1, 'addams-family' => 1, 'alice-wonderland' => 5, 'starbucks-frappuccinos' => 1, 'soafer' => 1]);
     foreach ($catalog->all() as $design) {
         expect($design->slots())->toContain('amount', 'recipient');
         $contents = (new Renderer)->png($design, ['amount' => '₱1,000.00']);
@@ -177,7 +177,8 @@ it('requires optional provider identity slots in subsequent system designs', fun
     $catalog->load(dirname(__DIR__));
     $historical = ['steampunk' => 5, 'cats' => 4, 'valentine' => 1];
     foreach ($catalog->all() as $design) {
-        if ($design->revision() <= ($historical[$design->id()] ?? 0)) {
+        // This artwork was approved without additional provider branding.
+        if ($design->id() === 'soafer' || $design->revision() <= ($historical[$design->id()] ?? 0)) {
             continue;
         }
         expect($design->slots())->toContain('provider_logo', 'provider_name');
@@ -363,4 +364,15 @@ it('renames the Alice design without changing its artwork or historical revision
     expect($new->document['layers'])->toBe($old->document['layers']);
     expect(file_get_contents(dirname(__DIR__).'/designs/alice-wonderland/3/preview.png'))
         ->toBe(file_get_contents(dirname(__DIR__).'/designs/alice-wonderland/2/preview.png'));
+});
+
+
+it('preserves the approved soafer artwork without branding or cropping', function () {
+    $catalog = new Catalog;
+    $catalog->load(dirname(__DIR__));
+    $design = $catalog->resolve('soafer', 1);
+    expect($design->document['name'])->toBe('soafer!');
+    expect($design->slots())->toContain('amount', 'recipient')->not->toContain('provider_logo', 'provider_name');
+    expect($design->document['layers'][0]['fit'])->toBe('contain');
+    expect(hash_file('sha256', $design->asset('assets/artwork/soafer-v1.png')))->toBe('d00250294e998d8677d9252d40125c2c584784308d9f5a7a0e31989c152eb98f');
 });
