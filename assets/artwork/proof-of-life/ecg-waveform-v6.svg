@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1426" height="705" viewBox="0 0 1426 705" role="img" aria-labelledby="title description">
+  <title id="title">PROOF OF LIFE V6 vital sign</title>
+  <desc id="description">A V6-derived pulse with a single terrestrial timestamp and a single celestial identifier set into the horizontal signal.</desc>
+  <defs>
+    <filter id="bloom" x="-10%" y="-90%" width="120%" height="280%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18" result="wide"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="near"/>
+      <feMerge><feMergeNode in="wide"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <path id="signal" d="M32 350H430C436 350 439 349 440 343L447 100C448 174 449 272 453 335C454 353 460 367 471 369C483 370 495 354 506 329C517 308 529 302 540 308C554 315 560 334 569 343C579 350 591 350 618 350H1394"/>
+    <text id="earth" font-family="Menlo, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing=".16" fill="#fff">14.5977 / 121.0250 / 20261031 / 095400 / +0800</text>
+    <text id="star" font-family="Menlo, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing=".16" fill="#fff">ANAÏS / RA 23H 39M 21S / DEC +77° 37′ 55.1″</text>
+  </defs>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#signal" stroke-width="22" opacity=".68" filter="url(#bloom)"/>
+    <use href="#signal" stroke-width="5"/>
+  </g>
+  <g opacity=".94"><use href="#earth" x="48" y="354"/><use href="#star" x="630" y="354"/></g>
+  <circle cx="1394" cy="350" r="24" fill="#fff" opacity=".68" filter="url(#bloom)"/>
+  <circle cx="1394" cy="350" r="10" fill="#fff"/>
+</svg>

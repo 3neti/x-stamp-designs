@@ -1,0 +1,50 @@
+{
+    "source_canvas": {
+        "width": 4284,
+        "height": 5712
+    },
+    "crop": {
+        "x": 0,
+        "y": 1800,
+        "width": 4284,
+        "height": 2249
+    },
+    "layers": [
+        {
+            "file": "original-photograph.heic",
+            "opacity": 1
+        },
+        {
+            "file": "stamp-full-opacity.png",
+            "opacity": 0.1,
+            "bounds": [
+                841,
+                1240,
+                3896,
+                2460
+            ],
+            "x": 950,
+            "y": 500,
+            "width": 2500,
+            "height": 998
+        },
+        {
+            "file": "ecg-waveform.png",
+            "opacity": 1,
+            "bounds": [
+                2726,
+                169,
+                4152,
+                874
+            ],
+            "x": 2000,
+            "y": 65,
+            "width": 1260,
+            "height": 623
+        }
+    ],
+    "output": {
+        "width": 2400,
+        "height": 1260
+    }
+}

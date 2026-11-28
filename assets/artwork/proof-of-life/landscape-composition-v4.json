@@ -1,0 +1,41 @@
+{
+    "source_canvas": {
+        "width": 4284,
+        "height": 5712
+    },
+    "crop": {
+        "x": 0,
+        "y": 1800,
+        "width": 4284,
+        "height": 2249
+    },
+    "layers": [
+        {
+            "file": "original-photograph.heic",
+            "opacity": 1
+        },
+        {
+            "file": "ecg-waveform-v7.png",
+            "opacity": 1,
+            "bounds": [0, 0, 1672, 941],
+            "x": 1800,
+            "y": -280,
+            "width": 2200,
+            "height": 1237
+        },
+        {
+            "file": "daughters-dove.png",
+            "opacity": 1,
+            "bounds": [0, 0, 833, 965],
+            "x": 2069,
+            "y": 1040,
+            "width": 145,
+            "height": 168
+        }
+    ],
+    "output": {
+        "width": 3840,
+        "height": 2016,
+        "file": "proof-of-life-v4.png"
+    }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4284" height="5712" viewBox="0 0 1086 1448">
+  <defs><filter id="glow" x="-30%" y="-70%" width="160%" height="240%"><feGaussianBlur stdDeviation="8"/></filter></defs>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity=".6" filter="url(#glow)" stroke-width="4"><path d="M710 142 H856 L866 124 887 162 908 62 924 202 947 119 966 148 972 142 H1026"/><circle cx="1026" cy="142" r="7" fill="#fff" stroke="none"/></g>
+    <path stroke-width="4" d="M710 142 H856 L866 124 887 162 908 62 924 202 947 119 966 148 972 142 H1026"/>
+    <circle cx="1026" cy="142" r="7" fill="#fff" stroke="none"/>
+  </g>
+</svg>
